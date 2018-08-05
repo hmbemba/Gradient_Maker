@@ -1,0 +1,44 @@
+class Gradient_Box_Maker
+{   
+  //DATA
+  float numBoxes; //Number of gradient boxes to generate
+  float magicNum;
+
+  //FUNC//////////////////////
+  void setnumBoxes( int cnumBoxes)
+  {
+    numBoxes = cnumBoxes;
+  }
+
+  void setnumBoxes( float cnumBoxes)
+  {
+    numBoxes = int(cnumBoxes);
+    //print ( int(cnumBoxes) + ",");
+  }
+
+
+  void Generate_Gradient_Boxes() {   
+    for (float i = 0; i < numBoxes; i++)
+    {
+      magicNum = i*255/ (numBoxes-1 );//divides the fill evenly between each of the
+      //boxes created. The -1 is there to account For the first block being totally
+      //black
+      
+     // float test = map(numBoxes, 0, 100, 0,255);
+      fill(magicNum,0,0);
+      println("the magic num fill For box" +" "+ i +" "+ "is" +" "+magicNum + " " + numBoxes );    
+      float rx = i*( width/numBoxes );
+      float ry = 0;
+      float rw = ( width/numBoxes );
+      float rh = height;
+      rect(rx, ry, rw, rh );
+      
+      if (mousePressed==true) 
+      {
+        //rect(width, height, 50, 50);
+        print("break");
+        break;
+      }
+    }
+  }
+}
